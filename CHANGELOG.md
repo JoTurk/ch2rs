@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 <!-- next-header -->
 
 ## [Unreleased] - ReleaseDate
+### Added
+- Support for ClickHouse `Time` and `Time64(precision)` types.
+- New `--temporal` option to choose temporal type mapping mode: `raw` (default), `time`, or `chrono`.
+  - **raw** mode (default): uses primitive Rust types (u16, i32, u32, i64).
+  - **time** mode: uses `time` crate types (`time::Date`, `time::OffsetDateTime`, `time::Duration`).
+  - **chrono** mode: uses `chrono` crate types (`chrono::NaiveDate`, `chrono::DateTime<Utc>`, `chrono::Duration`).
+- Comprehensive serde support for temporal types in all modes with appropriate precision handling.
 
 ## [0.1.8] - 2024-09-27
 ### Added
